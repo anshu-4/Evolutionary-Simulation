@@ -1,9 +1,14 @@
 ######
-# Inserted a comment and committed this change
+import numpy as np
+import matplotlib.pyplot as plt
+
 # Initialise ground 
-a = np.arange(0,12,3).reshape((4,1))[::-1]
-b = [ a for i in range(4) ]
-ground = np.concatenate(b,axis=1)     # Shape 256x256
+# Ground is initialised here by fisrst making a 256-long column and repeating it 255 more times vertically
+a = np.arange(0,256).reshape((256,1))[::-1]      
+ground = np.concatenate([ a for i in range(256) ],axis=1)     # Shape 256x256
+del a
+
+# The np array, ground, is now made and is left untampered for the rest of the code.
 
 def orggen():
     one_organism = (np.random.rand(255,2)>=0.5)*1
